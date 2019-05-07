@@ -1,9 +1,11 @@
 # ml_exercise
 
-### Steps to run tests
+### Steps to run evaluator (Python 3.5+)
 - Install requirements (`pip install -r requirements.txt`)
 - (Optional) The repo consists of dummy models, but in case you want to generate it again, you can run `python generate_models.py`. This will train dummy models, serialize them and save it to the disk (`data` folder).
 - `python evaluator.py --config config.json`
+- For discussions on the extensions given in the problem statement, check this [page](/discussions.md).
+
 #### Sample output:
 ```
 Fetching inputs from data/input.csv, type=file
@@ -13,6 +15,14 @@ Running model Neural Network Regression
 82%
 Generating data from Neural Network Regression and storing results into data/best_model.txt.
 ```
+
+### Code Structure
+* `evaluator.py` -- main code that has the evaluator logic. This is responsible for reading the configuration file, reading the data and iterating over all the models, finally writing the best results to output sync.
+* `config.json` -- json configuration file (look at this [section](#configuration) for detailed description of the configuration options)
+* `model.py` -- Consists `TrainedModel` class which is an abstraction on top of a trained model artifcat. It wraps up different model types and exposes common functions like `load`, `save`, `predict`, `evaluate` so that the we don't need custom code for each type of model.
+* `generate_models.py` -- Helper script to generate dummy models, serialize and save to disk
+* `exceptions.py` -- custom exceptions
+* `data` -- Contains serialized dummy models and sample input files needed for testing the evaluator.
 
 ### Configuration
 The different parameters can be changed easily by updating the json file (can also be generated as part of some other upstream process). This makes changing parameters like input sources, output sinks, list of models, metric etc customizable without changing the core evaluator.
