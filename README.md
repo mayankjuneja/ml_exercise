@@ -3,7 +3,7 @@
 ### Steps to run evaluator (Python 3.5+)
 - Install requirements (`pip install -r requirements.txt`)
 - (Optional) The repo consists of dummy models, but in case you want to generate it again, you can run `python generate_models.py`. This will train dummy models, serialize them and save it to the disk (`data` folder).
-- `python evaluator.py --config config.json`
+- `python evaluator.py --config_file config.json`
 - For discussions on the extensions given in the problem statement, check this [page](/discussions.md).
 
 #### Sample output:
