@@ -1,0 +1,14 @@
+{
+	"input_source": {
+		"type": "file",
+		"location": "data/input.csv"
+	},
+	"output_sink": {
+		"type": "file",
+		"location": "data/best_model.txt"
+	},
+	"input_features": ["age", "sex", "bmi", "bp", "s1", "s2", "s3", "s4", "s5", "s6"],
+	"output_label": "target",
+	"models": ["data/linear_regression.bin", "data/neural_network_regression.bin"],
+	"metric": "r2"
+}
