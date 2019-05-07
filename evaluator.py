@@ -1,12 +1,13 @@
 """
 Assumptions:
-Only talking about columnar dataframes, where input
-can be represented as a dataframe
-Input data has a column which has the target label/value
-of the example, which will be used to measure the performance of the model
-The platform has a CLI interface which takes in list of models to be evaluated,
-input data source, output data sink, input feature names, output label
-Assumption is data fits in memory
+- Only restricring to columnar dataframes, where input
+  can be represented as a dataframe
+- Input data has a column which has the target label/value
+  of the example, which will be used to measure the performance of the model
+- The platform has a CLI interface which takes a config file which consists 
+  of options likein list of models to be evaluated, input data source, 
+  output data sink, input feature names, output label
+- Data fits in memory
 """
 
 import json
